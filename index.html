@@ -1,0 +1,716 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090909">
+<meta name="description" content="Discover premium streetwear by PRIOR WEAR®. Shop T-shirts, Hoodies and Tracksuits.">
+<title>PRIOR WEAR® | Official Streetwear Store</title>
+
+<style>
+:root{
+  --bg:#090909;
+  --surface:#121212;
+  --surface2:#1b1b1b;
+  --text:#f6f4ef;
+  --muted:#a5a39e;
+  --line:#30302d;
+  --accent:#e8e5df;
+  --max:1360px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+body,button,input,select,textarea{font-family:Arial,Helvetica,sans-serif}
+button,input,select,textarea{font-size:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.container{width:min(var(--max),92%);margin:auto}
+.announcement{background:var(--accent);color:#111;text-align:center;
+  padding:8px 12px;font-size:10px;letter-spacing:2px;font-weight:bold}
+header{position:sticky;top:0;z-index:20;background:#090909ef;
+  backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:76px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px}
+.logo{font-size:25px;font-weight:1000;letter-spacing:2px;white-space:nowrap}
+.logo span{color:#b9b6ae}
+.navlinks{display:flex;align-items:center;gap:25px}
+.navlinks a{font-size:10px;letter-spacing:1.3px;font-weight:bold}
+.navlinks a:hover{color:#c6c2b9}
+.nav-actions{display:flex;align-items:center;gap:10px}
+.nav-btn,.menu-btn{background:transparent;color:white;border:1px solid #555;
+  padding:10px 13px;font-size:10px;letter-spacing:1px}
+.menu-btn{display:none}
+.hero{position:relative;min-height:650px;display:flex;align-items:center;
+  overflow:hidden;background:linear-gradient(120deg,#171717,#070707)}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  opacity:.57}
+.hero::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,#080808 0%,#080808db 38%,#08080838 100%)}
+.hero-content{position:relative;z-index:1;padding:75px 0;max-width:760px}
+.kicker{font-size:10px;letter-spacing:3px;color:#c9c5bd;font-weight:bold}
+.hero h1{font-size:clamp(48px,8.5vw,108px);line-height:.94;
+  letter-spacing:-5px;margin:22px 0;font-weight:1000}
+.hero h1 span{color:#bcb8b0}
+.hero p{font-size:15px;color:#d0cfcb;max-width:470px}
+.button-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;justify-content:center;align-items:center;
+  background:var(--accent);color:#101010;border:1px solid var(--accent);
+  padding:14px 20px;font-size:10px;font-weight:bold;letter-spacing:1px;
+  transition:all .2s}
+.btn:hover{background:white;border-color:white;transform:translateY(-2px)}
+.btn-secondary{background:transparent;color:white;border-color:#777}
+.btn-secondary:hover{color:#111}
+.benefits{display:grid;grid-template-columns:repeat(4,1fr);
+  border-bottom:1px solid var(--line)}
+.benefit{padding:22px 10px;text-align:center;border-right:1px solid var(--line)}
+.benefit:last-child{border:0}
+.benefit strong{display:block;font-size:10px;letter-spacing:1.2px}
+.benefit span{font-size:11px;color:var(--muted)}
+section{padding:78px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;
+  gap:25px;margin-bottom:28px}
+h2{font-size:clamp(29px,4vw,46px);letter-spacing:-1.6px;
+  line-height:1.1;margin:8px 0}
+.section-head p{font-size:12px;color:var(--muted);margin:8px 0 0}
+.text-link{font-size:10px;letter-spacing:1px;border-bottom:1px solid #888;padding-bottom:5px}
+.categories{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.category{height:420px;position:relative;overflow:hidden;background:#191919}
+.category img{position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;opacity:.76;transition:transform .6s,opacity .4s}
+.category:hover img{transform:scale(1.06);opacity:.95}
+.category:after{content:"";position:absolute;inset:0;
+  background:linear-gradient(0deg,#000e,transparent 65%)}
+.category-info{position:absolute;z-index:1;left:22px;bottom:23px}
+.category-info h3{font-size:29px;margin:0;letter-spacing:-.5px}
+.category-info p{font-size:10px;letter-spacing:1.4px;margin:5px 0}
+.shop{background:#0e0e0e}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0 18px}
+.control{background:#171717;color:white;border:1px solid #3b3b3b;
+  padding:12px 14px;outline:none;min-width:0}
+#search{flex:1;min-width:200px}
+.control:focus,.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:#aaa}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filter{background:transparent;color:#eee;border:1px solid #414141;
+  padding:10px 14px;font-size:10px;letter-spacing:.8px}
+.filter.active,.filter:hover{background:var(--accent);color:#111;border-color:var(--accent)}
+.product-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.product{border:1px solid #252525;background:#101010;min-width:0;
+  transition:transform .25s,border-color .25s}
+.product:hover{transform:translateY(-3px);border-color:#656565}
+.product-image{position:relative;aspect-ratio:4/5;background:#1b1b1b;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+.product:hover .product-image img{transform:scale(1.035)}
+.product-tag{position:absolute;left:10px;top:10px;background:#e8e5df;color:#111;
+  font-size:8px;font-weight:bold;letter-spacing:.7px;padding:5px 7px}
+.product-info{padding:14px}
+.product-info h3{font-size:13px;line-height:1.4;margin:0 0 6px}
+.product-info .category-label{font-size:10px;color:var(--muted);margin:0 0 12px}
+.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price{font-size:14px;font-weight:bold;white-space:nowrap}
+.order-btn{background:transparent;color:white;border:1px solid #626262;
+  padding:9px 10px;font-size:9px;font-weight:bold;letter-spacing:.5px}
+.order-btn:hover{background:var(--accent);color:#111;border-color:var(--accent)}
+.empty-state{grid-column:1/-1;text-align:center;padding:45px 10px;color:var(--muted)}
+.promo{background:var(--accent);color:#111;padding:45px;
+  display:flex;justify-content:space-between;align-items:center;gap:24px}
+.promo .kicker{color:#555}
+.promo h2{font-size:clamp(30px,5vw,55px);max-width:680px}
+.promo .btn{background:#111;color:white;border-color:#111}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-copy p{font-size:13px;color:#b6b4af;max-width:520px;margin-bottom:20px}
+.about-art{min-height:360px;background:linear-gradient(135deg,#202020,#080808);
+  border:1px solid #343434;display:grid;place-items:center;text-align:center}
+.about-art strong{font-size:clamp(42px,7vw,84px);line-height:.95;letter-spacing:-4px}
+.about-art span{color:#b9b5ad}
+.about-art small{display:block;letter-spacing:4px;margin-top:20px;font-size:9px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.feature{padding:24px;background:#121212;border:1px solid #2b2b2b}
+.feature .number{font-size:11px;color:#aaa}
+.feature h3{font-size:15px}
+.feature p{font-size:12px;color:var(--muted);margin-bottom:0}
+.faq{border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding:19px 0}
+summary{cursor:pointer;font-size:12px;font-weight:bold;letter-spacing:.4px}
+details p{font-size:12px;color:var(--muted);max-width:760px}
+footer{border-top:1px solid var(--line);padding:48px 0 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:35px}
+.footer-grid p,.footer-grid a{font-size:12px;color:var(--muted)}
+.footer-grid h4{font-size:10px;letter-spacing:1.5px}
+.footer-links{display:grid;gap:10px}
+.footer-links a:hover{color:white}
+.copyright{border-top:1px solid var(--line);margin-top:35px;padding-top:20px;
+  display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  font-size:9px;color:#777}
+.wa-float{position:fixed;z-index:15;right:18px;bottom:18px;
+  background:#e8e5df;color:#111;border:1px solid #aaa;
+  padding:13px 17px;border-radius:30px;font-size:10px;font-weight:bold;
+  box-shadow:0 4px 22px #0008}
+dialog{width:min(590px,95%);max-height:92vh;overflow-y:auto;
+  background:#101010;color:white;border:1px solid #444;padding:24px}
+dialog::backdrop{background:#000d;backdrop-filter:blur(5px)}
+.dialog-head{display:flex;align-items:start;justify-content:space-between;gap:15px}
+.dialog-head h2{font-size:26px}
+.close-btn{background:transparent;color:white;border:1px solid #555;padding:7px 12px}
+.selected-product{display:flex;align-items:center;gap:14px;padding:12px;
+  margin:16px 0;background:#1b1b1b}
+.selected-product img{width:86px;height:100px;object-fit:cover}
+.selected-product h3{font-size:14px;margin:0 0 7px}
+.selected-product p{color:#ddd;font-size:13px;margin:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:9px;letter-spacing:1px;color:#ccc}
+.field input,.field select,.field textarea{width:100%;min-width:0;
+  background:#1b1b1b;border:1px solid #444;color:white;padding:12px;
+  border-radius:0}
+.field textarea{min-height:75px;resize:vertical}
+.field select option{background:#171717}
+.submit-order{width:100%;margin-top:17px;padding:15px;background:#e8e5df;
+  color:#111;border:0;font-weight:bold;font-size:11px;letter-spacing:.7px}
+.small-note{font-size:10px;color:#999;margin-top:10px}
+@media(max-width:1000px){
+  .navlinks{gap:13px}
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .category{height:350px}
+}
+@media(max-width:700px){
+  .nav{min-height:68px}
+  .logo{font-size:21px}
+  .menu-btn{display:block}
+  .navlinks{display:none;position:absolute;left:0;right:0;top:68px;
+    padding:22px 5%;background:#101010;border-bottom:1px solid #333;
+    flex-direction:column;align-items:start;gap:20px}
+  .navlinks.open{display:flex}
+  .nav-actions .nav-btn{display:none}
+  .hero{min-height:530px}
+  .hero h1{letter-spacing:-2.5px}
+  section{padding:55px 0}
+  .benefits{grid-template-columns:repeat(2,1fr)}
+  .benefit:nth-child(2){border-right:0}
+  .benefit:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .categories{grid-template-columns:1fr;gap:12px}
+  .category{height:330px}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product-info{padding:10px}
+  .product-info h3{font-size:12px}
+  .product-bottom{align-items:flex-start;flex-direction:column}
+  .order-btn{width:100%}
+  .section-head{align-items:start;flex-direction:column}
+  .promo{padding:28px;align-items:start;flex-direction:column}
+  .about-grid{grid-template-columns:1fr;gap:22px}
+  .about-art{min-height:280px}
+  .features{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:20px}
+  .footer-grid>div:first-child{grid-column:1/-1}
+  .form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  dialog{padding:17px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<div class="announcement">
+  PRIOR WEAR® &nbsp; · &nbsp; MODERN STREETWEAR &nbsp; · &nbsp; WORLDWIDE AMBITION
+</div>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#home" aria-label="Prior Wear home">PRIOR <span>WEAR®</span></a>
+    <nav class="navlinks" id="navlinks" aria-label="Main navigation">
+      <a href="#home">HOME</a>
+      <a href="#collections">COLLECTIONS</a>
+      <a href="#shop">SHOP ALL</a>
+      <a href="#about">OUR STORY</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="nav-btn" href="#shop">DISCOVER ↗</a>
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰ MENU</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <img class="hero-bg" src="assets/images/hero.jpg"
+       alt="PRIOR WEAR fashion campaign"
+       onerror="this.style.display='none'">
+  <div class="container hero-content">
+    <div class="kicker">THE NEXT CHAPTER OF STREETWEAR</div>
+    <h1>OWN YOUR<br><span>EVERYDAY.</span></h1>
+    <p>Modern essentials. Confident silhouettes. A new expression of everyday streetwear. Discover T-shirts, Hoodies and Tracksuits by PRIOR WEAR®.</p>
+    <div class="button-row">
+      <a href="#shop" class="btn">SHOP THE COLLECTION ↗</a>
+      <a href="#about" class="btn btn-secondary">DISCOVER OUR STORY</a>
+    </div>
+  </div>
+</section>
+
+<div class="container benefits">
+  <div class="benefit"><strong>01 / EVERYDAY STYLE</strong><span>Designed for your rotation</span></div>
+  <div class="benefit"><strong>02 / FIND YOUR FIT</strong><span>Choose your size</span></div>
+  <div class="benefit"><strong>03 / YOUR COLOR</strong><span>Make it your own</span></div>
+  <div class="benefit"><strong>04 / EASY ORDERING</strong><span>WhatsApp order requests</span></div>
+</div>
+
+<section id="collections">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">EXPLORE THE EDIT</div>
+        <h2>FIND YOUR UNIFORM.</h2>
+        <p>Three collections. One distinctive identity.</p>
+      </div>
+      <a class="text-link" href="#shop">VIEW ALL PRODUCTS ↗</a>
+    </div>
+    <div class="categories">
+      <a class="category" href="#shop" data-jump="T-Shirts">
+        <img src="assets/images/tshirts/tshirt-01.jpg" alt="PRIOR WEAR T-shirt collection" loading="lazy">
+        <div class="category-info"><h3>T-SHIRTS</h3><p>THE EVERYDAY ESSENTIAL ↗</p></div>
+      </a>
+      <a class="category" href="#shop" data-jump="Hoodies">
+        <img src="assets/images/hoodies/hoodie-01.jpg" alt="PRIOR WEAR hoodie collection" loading="lazy">
+        <div class="category-info"><h3>HOODIES</h3><p>COMFORT IN EVERY DETAIL ↗</p></div>
+      </a>
+      <a class="category" href="#shop" data-jump="Tracksuits">
+        <img src="assets/images/tracksuits/tracksuit-01.jpg" alt="PRIOR WEAR tracksuit collection" loading="lazy">
+        <div class="category-info"><h3>TRACKSUITS</h3><p>MADE TO MOVE ↗</p></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="shop" id="shop">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="kicker">THE PRIOR WEAR® STORE</div>
+        <h2>SHOP THE COLLECTION.</h2>
+        <p>Find your next favorite. Prices are displayed in US dollars.</p>
+      </div>
+    </div>
+    <div class="toolbar">
+      <input class="control" id="search" type="search" placeholder="Search products..." aria-label="Search products">
+      <select class="control" id="sort" aria-label="Sort products">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="az">Name: A to Z</option>
+      </select>
+    </div>
+    <div class="filters" id="filters">
+      <button class="filter active" data-category="All">ALL PRODUCTS</button>
+      <button class="filter" data-category="T-Shirts">T-SHIRTS</button>
+      <button class="filter" data-category="Hoodies">HOODIES</button>
+      <button class="filter" data-category="Tracksuits">TRACKSUITS</button>
+    </div>
+    <div class="product-grid" id="productGrid" aria-live="polite"></div>
+    <p class="small-note">Prices shown in USD. Shipping, taxes and final availability must be confirmed before the order is accepted.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container promo">
+    <div>
+      <div class="kicker">YOUR STYLE. YOUR STATEMENT.</div>
+      <h2>LESS ORDINARY.<br>MORE YOU.</h2>
+      <p>Build your rotation with PRIOR WEAR® essentials.</p>
+    </div>
+    <a href="#shop" class="btn">EXPLORE THE STORE ↗</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-copy">
+      <div class="kicker">THE BRAND BEHIND THE FIT</div>
+      <h2>MORE THAN CLOTHING.<br>IT'S AN ATTITUDE.</h2>
+      <p>PRIOR WEAR® is a contemporary clothing brand focused on T-shirts, Hoodies and Tracksuits. Our vision is rooted in modern streetwear, versatile essentials and confident personal style.</p>
+      <p>From everyday fits to statement pieces, explore a collection built around your own expression. Choose your product, select your options and send an order request directly through WhatsApp.</p>
+      <a href="#shop" class="btn">FIND YOUR NEXT FIT ↗</a>
+    </div>
+    <div class="about-art">
+      <div><strong>PRIOR<br><span>WEAR®</span></strong><small>OWN YOUR EVERYDAY</small></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#0e0e0e">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">THE PRIOR STANDARD</div>
+      <h2>MADE FOR YOUR ROTATION.</h2></div>
+    </div>
+    <div class="features">
+      <article class="feature"><span class="number">01 / THE FIT</span><h3>YOUR STYLE, YOUR WAY</h3><p>Explore product options and choose a size and color that suit your style.</p></article>
+      <article class="feature"><span class="number">02 / THE DETAILS</span><h3>EVERYDAY ESSENTIALS</h3><p>Discover T-shirts, Hoodies and Tracksuits in one dedicated collection.</p></article>
+      <article class="feature"><span class="number">03 / THE EXPERIENCE</span><h3>SIMPLE ORDER REQUESTS</h3><p>Send your selected product and delivery details through WhatsApp.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="kicker">NEED TO KNOW</div>
+    <h2>FREQUENTLY ASKED QUESTIONS.</h2>
+    <div class="faq">
+      <details><summary>HOW DO I PLACE AN ORDER?</summary><p>Select a product, click Order Now, fill in your details and press Send Order to WhatsApp. WhatsApp opens with a prefilled message; you must send it yourself.</p></details>
+      <details><summary>ARE THE PRICES IN US DOLLARS?</summary><p>Yes. The sample prices on this demo store are displayed in USD. Replace them with your actual selling prices before publishing.</p></details>
+      <details><summary>HOW DO I CHOOSE MY SIZE AND COLOR?</summary><p>Select your preferred options in the order form. Confirm actual product availability with the seller before finalizing your order.</p></details>
+      <details><summary>DO YOU SHIP INTERNATIONALLY?</summary><p>International delivery availability, shipping charges, customs duties and delivery times must be confirmed with PRIOR WEAR before you advertise worldwide shipping.</p></details>
+      <details><summary>WHEN IS MY ORDER CONFIRMED?</summary><p>Sending a WhatsApp request does not automatically confirm your order. The seller must confirm stock, final price, shipping and payment arrangements.</p></details>
+      <details><summary>WHAT PAYMENT METHODS ARE AVAILABLE?</summary><p>Payment methods should be agreed with the seller. This demo does not process card payments or collect online payments.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:#111">
+  <div class="container">
+    <div class="kicker">LET'S TALK</div>
+    <h2>YOUR NEXT FIT STARTS HERE.</h2>
+    <p style="font-size:13px;color:#aaa">Questions about products, sizing or an order? Contact PRIOR WEAR®.</p>
+    <a id="contactWA" class="btn" href="https://wa.me/923244088310" target="_blank" rel="noopener">CONTACT US ON WHATSAPP ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a href="#home" class="logo">PRIOR <span>WEAR®</span></a>
+        <p>Contemporary streetwear.<br>Everyday essentials. Your own expression.</p>
+      </div>
+      <div><h4>EXPLORE</h4><div class="footer-links">
+        <a href="#shop">Shop All</a><a href="#collections">Collections</a><a href="#about">Our Story</a>
+      </div></div>
+      <div><h4>SUPPORT</h4><div class="footer-links">
+        <a href="#faq">FAQs</a><a href="#contact">Contact</a><a href="#contact">Order Assistance</a>
+      </div></div>
+    </div>
+    <div class="copyright">
+      <span>© <span id="year"></span> PRIOR WEAR®. ALL RIGHTS RESERVED.</span>
+      <span>PRICES DISPLAYED IN USD ($)</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" id="floatWA" href="https://wa.me/923244088310" target="_blank" rel="noopener">WHATSAPP ↗</a>
+
+<dialog id="orderDialog">
+  <div class="dialog-head">
+    <div><div class="kicker">PRIOR WEAR® / ORDER REQUEST</div><h2>YOUR DETAILS.</h2></div>
+    <button class="close-btn" id="closeDialog" type="button" aria-label="Close form">✕</button>
+  </div>
+  <div class="selected-product">
+    <img id="orderImage" src="assets/images/hero.jpg" alt="Selected product">
+    <div><h3 id="orderName">Selected product</h3><p id="orderPrice">$0.00</p><p class="small-note">Review your product before continuing.</p></div>
+  </div>
+  <form id="orderForm">
+    <div class="form-grid">
+      <div class="field full"><label for="fullName">FULL NAME *</label><input id="fullName" name="fullName" required maxlength="100" autocomplete="name" placeholder="Your full name"></div>
+      <div class="field"><label for="phone">MOBILE / WHATSAPP NUMBER *</label><input id="phone" name="phone" required type="tel" maxlength="30" autocomplete="tel" placeholder="+1... / +92..."></div>
+      <div class="field"><label for="country">COUNTRY *</label><input id="country" name="country" required maxlength="80" autocomplete="country-name" placeholder="Country"></div>
+      <div class="field"><label for="city">CITY *</label><input id="city" name="city" required maxlength="80" autocomplete="address-level2" placeholder="City"></div>
+      <div class="field"><label for="postal">POSTAL / ZIP CODE</label><input id="postal" name="postal" maxlength="20" autocomplete="postal-code" placeholder="Postal code"></div>
+      <div class="field full"><label for="address">FULL DELIVERY ADDRESS *</label><textarea id="address" name="address" required maxlength="500" autocomplete="street-address" placeholder="Street, building, area and delivery address"></textarea></div>
+      <div class="field"><label for="size">SIZE *</label><select id="size" name="size" required><option value="">Select size</option><option>XS</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></div>
+      <div class="field"><label for="color">COLOR *</label><select id="color" name="color" required><option value="">Select color</option><option>Black</option><option>White</option><option>Grey</option><option>Navy Blue</option><option>Beige</option><option>Olive</option><option>Other / Ask seller</option></select></div>
+      <div class="field"><label for="quantity">QUANTITY *</label><input id="quantity" name="quantity" type="number" min="1" max="20" value="1" required></div>
+      <div class="field"><label for="payment">PAYMENT PREFERENCE</label><select id="payment" name="payment"><option>Discuss with seller</option><option>Cash on Delivery (if available)</option><option>Bank transfer (if available)</option><option>Other / Ask seller</option></select></div>
+      <div class="field full"><label for="notes">ORDER NOTES (OPTIONAL)</label><textarea id="notes" name="notes" maxlength="300" placeholder="Any additional instructions?"></textarea></div>
+    </div>
+    <button class="submit-order" type="submit">CONTINUE TO WHATSAPP ↗</button>
+    <p class="small-note">This form opens WhatsApp with your order request. It does not automatically send the message, charge your card or confirm stock.</p>
+  </form>
+</dialog>
+
+<script>
+// PRIOR WEAR® STORE CONFIGURATION
+// WhatsApp number in international format, without + or leading zero.
+const WHATSAPP_NUMBER = "923244088310";
+
+// Demo prices in USD. Replace with your actual retail prices.
+const categories = [
+  {
+    name:"T-Shirts", folder:"tshirts", prefix:"tshirt",
+    products:[
+      ["Essential Logo Tee",24.99],["Oversized Street Tee",29.99],
+      ["Minimal Graphic Tee",27.99],["Classic Black Tee",24.99],
+      ["Premium White Tee",24.99],["Urban Print Tee",29.99],
+      ["Relaxed Fit Tee",27.99],["Signature PW Tee",32.99],
+      ["Everyday Cotton Tee",25.99],["Bold Statement Tee",29.99],
+      ["Monochrome Tee",27.99],["Sport Street Tee",29.99],
+      ["Heavyweight Boxy Tee",34.99],["Clean Cut Tee",26.99],
+      ["Limited Edition Tee",39.99]
+    ]
+  },
+  {
+    name:"Hoodies", folder:"hoodies", prefix:"hoodie",
+    products:[
+      ["Essential Pullover Hoodie",49.99],["Oversized Street Hoodie",59.99],
+      ["Signature Logo Hoodie",54.99],["Classic Black Hoodie",49.99],
+      ["Minimal Graphic Hoodie",54.99],["Urban Heavy Hoodie",64.99],
+      ["Relaxed Fit Hoodie",52.99],["PW Statement Hoodie",59.99],
+      ["Everyday Fleece Hoodie",49.99],["Monochrome Hoodie",54.99],
+      ["Sport Utility Hoodie",64.99],["Premium Boxy Hoodie",69.99],
+      ["Clean Logo Hoodie",52.99],["Modern Street Hoodie",59.99],
+      ["Limited Edition Hoodie",79.99]
+    ]
+  },
+  {
+    name:"Tracksuits", folder:"tracksuits", prefix:"tracksuit",
+    products:[
+      ["Essential Tracksuit",79.99],["Performance Tracksuit",89.99],
+      ["Signature PW Tracksuit",99.99],["Classic Black Tracksuit",84.99],
+      ["Urban Street Tracksuit",89.99],["Minimal Tracksuit Set",79.99],
+      ["Athletic Fit Tracksuit",89.99],["Premium Zip Tracksuit",109.99],
+      ["Everyday Tracksuit",79.99],["Monochrome Tracksuit",89.99],
+      ["Sport Luxe Tracksuit",109.99],["Relaxed Fit Tracksuit",84.99],
+      ["Modern Panel Tracksuit",99.99],["Clean Cut Tracksuit",89.99],
+      ["Limited Edition Tracksuit",129.99]
+    ]
+  }
+];
+
+const products = [];
+categories.forEach(category => {
+  category.products.forEach((item,index) => {
+    const number = String(index+1).padStart(2,"0");
+    products.push({
+      id:category.folder+"-"+number,
+      name:item[0],
+      price:item[1],
+      category:category.name,
+      image:`assets/images/${category.folder}/${category.prefix}-${number}.jpg`
+    });
+  });
+});
+
+let activeCategory = "All";
+let selectedProduct = null;
+
+const grid = document.getElementById("productGrid");
+const search = document.getElementById("search");
+const sort = document.getElementById("sort");
+const dialog = document.getElementById("orderDialog");
+
+function money(amount){
+  return "$"+amount.toFixed(2);
+}
+
+function renderProducts(){
+  let list = products.filter(product => {
+    const categoryMatch = activeCategory==="All" || product.category===activeCategory;
+    const term = search.value.trim().toLowerCase();
+    const searchMatch = (product.name+" "+product.category).toLowerCase().includes(term);
+    return categoryMatch && searchMatch;
+  });
+
+  if(sort.value==="low") list.sort((a,b)=>a.price-b.price);
+  if(sort.value==="high") list.sort((a,b)=>b.price-a.price);
+  if(sort.value==="az") list.sort((a,b)=>a.name.localeCompare(b.name));
+
+  grid.replaceChildren();
+
+  if(!list.length){
+    const empty = document.createElement("div");
+    empty.className = "empty-state";
+    empty.textContent = "No products found. Try a different search.";
+    grid.appendChild(empty);
+    return;
+  }
+
+  list.forEach(product => {
+    const card = document.createElement("article");
+    card.className = "product";
+
+    const imageBox = document.createElement("div");
+    imageBox.className = "product-image";
+
+    const img = document.createElement("img");
+    img.src = product.image;
+    img.alt = product.name;
+    img.loading = "lazy";
+    img.onerror = function(){
+      this.onerror = null;
+      this.style.display = "none";
+      const placeholder = document.createElement("div");
+      placeholder.style.cssText =
+        "position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#999;font-size:12px;padding:20px";
+      placeholder.textContent = "PRIOR WEAR® — ADD PRODUCT IMAGE";
+      imageBox.appendChild(placeholder);
+    };
+
+    const tag = document.createElement("span");
+    tag.className = "product-tag";
+    tag.textContent = product.category.toUpperCase();
+    imageBox.append(img,tag);
+
+    const info = document.createElement("div");
+    info.className = "product-info";
+
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+
+    const label = document.createElement("p");
+    label.className = "category-label";
+    label.textContent = product.category+" · Multiple options";
+
+    const bottom = document.createElement("div");
+    bottom.className = "product-bottom";
+
+    const price = document.createElement("span");
+    price.className = "price";
+    price.textContent = money(product.price);
+
+    const button = document.createElement("button");
+    button.className = "order-btn";
+    button.type = "button";
+    button.textContent = "ORDER NOW ↗";
+    button.addEventListener("click",()=>openOrder(product));
+
+    bottom.append(price,button);
+    info.append(name,label,bottom);
+    card.append(imageBox,info);
+    grid.appendChild(card);
+  });
+}
+
+function openOrder(product){
+  selectedProduct = product;
+  document.getElementById("orderName").textContent = product.name;
+  document.getElementById("orderPrice").textContent = money(product.price);
+
+  const image = document.getElementById("orderImage");
+  image.style.visibility = "visible";
+  image.src = product.image;
+  image.alt = product.name;
+  image.onerror = function(){
+    this.onerror = null;
+    this.style.visibility = "hidden";
+  };
+
+  document.getElementById("quantity").value = 1;
+  dialog.showModal();
+}
+
+document.getElementById("closeDialog").addEventListener("click",()=>{
+  dialog.close();
+});
+
+dialog.addEventListener("click",event=>{
+  if(event.target===dialog) dialog.close();
+});
+
+document.getElementById("filters").addEventListener("click",event=>{
+  const button = event.target.closest("[data-category]");
+  if(!button) return;
+
+  activeCategory = button.dataset.category;
+  document.querySelectorAll(".filter").forEach(item=>{
+    item.classList.toggle("active",item===button);
+  });
+  renderProducts();
+});
+
+document.querySelectorAll("[data-jump]").forEach(link=>{
+  link.addEventListener("click",()=>{
+    activeCategory = link.dataset.jump;
+    document.querySelectorAll(".filter").forEach(button=>{
+      button.classList.toggle("active",button.dataset.category===activeCategory);
+    });
+    renderProducts();
+  });
+});
+
+search.addEventListener("input",renderProducts);
+sort.addEventListener("change",renderProducts);
+
+document.getElementById("orderForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  if(!selectedProduct) return;
+
+  const form = new FormData(event.currentTarget);
+  const quantity = Number(form.get("quantity"));
+
+  if(!Number.isInteger(quantity)||quantity<1||quantity>20){
+    alert("Please select a quantity between 1 and 20.");
+    return;
+  }
+
+  const unitPrice = selectedProduct.price;
+  const subtotal = unitPrice * quantity;
+
+  const message = [
+    "🛍️ NEW ORDER REQUEST — PRIOR WEAR®",
+    "================================",
+    "Product: "+selectedProduct.name,
+    "Category: "+selectedProduct.category,
+    "Unit Price: "+money(unitPrice),
+    "Quantity: "+quantity,
+    "Product Subtotal: "+money(subtotal),
+    "",
+    "CUSTOMER DETAILS",
+    "Name: "+form.get("fullName"),
+    "Mobile: "+form.get("phone"),
+    "Country: "+form.get("country"),
+    "City: "+form.get("city"),
+    "Postal Code: "+(form.get("postal")||"Not provided"),
+    "Delivery Address: "+form.get("address"),
+    "Size: "+form.get("size"),
+    "Color: "+form.get("color"),
+    "Payment Preference: "+form.get("payment"),
+    "Notes: "+(form.get("notes")||"None"),
+    "",
+    "Please confirm product availability, shipping, taxes and final total before payment."
+  ].join("\n");
+
+  const whatsappURL =
+    "https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message);
+
+  // Open WhatsApp only after the customer submits the form.
+  const whatsappWindow = window.open(whatsappURL,"_blank");
+
+  if(whatsappWindow){
+    dialog.close();
+  }else{
+    // Popup blockers may prevent opening a new tab.
+    window.location.href = whatsappURL;
+  }
+});
+
+document.getElementById("menuBtn").addEventListener("click",()=>{
+  document.getElementById("navlinks").classList.toggle("open");
+});
+
+document.querySelectorAll("#navlinks a").forEach(link=>{
+  link.addEventListener("click",()=>{
+    document.getElementById("navlinks").classList.remove("open");
+  });
+});
+
+const generalMessage = encodeURIComponent(
+  "Hello PRIOR WEAR®! I would like to know more about your collection."
+);
+const generalURL = "https://wa.me/"+WHATSAPP_NUMBER+"?text="+generalMessage;
+document.getElementById("contactWA").href = generalURL;
+document.getElementById("floatWA").href = generalURL;
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+renderProducts();
+</script>
+</body>
+</html>
